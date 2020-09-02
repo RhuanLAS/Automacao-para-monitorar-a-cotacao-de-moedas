@@ -30,7 +30,8 @@ for i in range(0,2): # quantas vezes vai rodar no dia
     links.precessa_moeda(driver, dolar_americano, i)
     links.precessa_moeda(driver, euro, i)
     links.precessa_moeda(driver, libra, i)
-    time.sleep(2)
+    time.sleep(3600)
+    driver.refresh()
 
 print(f"Peso Argentino: {peso_argentino}")
 print(f"Dólar Canadense: {dolar_canadense}")
