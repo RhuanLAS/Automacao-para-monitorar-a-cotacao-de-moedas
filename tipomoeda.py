@@ -1,8 +1,8 @@
 
 class Moeda:
-    def __init__(self, xpath):
+    def __init__(self, xpath, hora):
         self._valoresDia = [xpath]
-        #self.horaComeco = hora
+        self.horaComeco = hora
 
     def __str__(self):
         return f"{self._valoresDia[1:]}"

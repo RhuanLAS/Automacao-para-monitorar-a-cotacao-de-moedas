@@ -4,7 +4,10 @@ from selenium.webdriver.common.by import By
 
 def precessa_moeda(driver, moeda):
     xpath = moeda.mostra_xpath()
-    WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, xpath)))
-    valor_str = driver.find_element_by_xpath(xpath).text
-    moeda.cria_valor_momento(valor_str)
+    if WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, xpath))):
+        valor_str = driver.find_element_by_xpath(xpath).text
+        moeda.cria_valor_momento(valor_str)
+    else:
+        assert False
+
 
