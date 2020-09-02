@@ -1,40 +1,29 @@
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from tipomoeda import Moeda
-import links
 import time
+import links
 
 driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
 driver.get("https://www.infomoney.com.br/ferramentas/cambio/")
 
-peso_argentino = Moeda()
-dolar_canadense = Moeda()
-dolar_americano = Moeda()
-euro = Moeda()
-libra = Moeda()
+peso_argentino = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[3]')
+dolar_canadense = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[3]/td[3]')
+dolar_americano = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[6]/td[3]')
+euro = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[7]/td[3]')
+libra = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[8]/td[3]')
 
-a = links.lista_com_dic()
-a.coloca_na_lista(peso_argentino)
-a.coloca_na_lista(dolar_canadense)
-a.coloca_na_lista(dolar_americano)
-a.coloca_na_lista(euro)
-a.coloca_na_lista(libra)
+for i in range(0,2): # quantas vezes vai rodar no dia
+    links.precessa_moeda(driver, peso_argentino)
+    links.precessa_moeda(driver, dolar_canadense)
+    links.precessa_moeda(driver, dolar_americano)
+    links.precessa_moeda(driver, euro)
+    links.precessa_moeda(driver, libra)
+    time.sleep(2)
 
-# for i in range(0,2):
-#     for j in range(0,5):
-#         WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, links.xpath_peso_argentino())))
-#         valor_str = driver.find_element_by_xpath(links.xpath_peso_argentino()).text
-#         peso_argentino.cria_valor_momento(valor_str)
-#         time.sleep(2)
-
-
-# WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, links.xpath_peso_argentino())))
-# valor_str = driver.find_element_by_xpath(links.xpath_peso_argentino()).text
-# peso_argentino.cria_valor_momento(valor_str)
-# time.sleep(2)
-#print(peso_argentino)
-
+print(f"Peso Argentino: {peso_argentino}")
+print(f"Dólar Canadense: {dolar_canadense}")
+print(f"Dólar Americano: {dolar_americano}")
+print(f"Euro: {euro}")
+print(f"Libra: {libra}")
 
 driver.close()
