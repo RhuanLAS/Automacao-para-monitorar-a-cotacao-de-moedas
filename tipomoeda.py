@@ -11,10 +11,10 @@ class Moeda(object):
         return self._valoresDia[0]
 
     def cria_valor_momento(self, valor_moeda, hora_momento):
-        valor_moeda = self._transforma_em_float(valor_moeda)
+        #valor_moeda = self._transforma_em_float(valor_moeda)
         self._valoresDia.append({"Valor": valor_moeda, "Hora": hora_momento})
 
-    def _transforma_em_float(self, valor_moeda):
-        valor_moeda = (valor_moeda.replace(",", ".")).lstrip()
-        valor_moeda = float(valor_moeda)
-        return valor_moeda
+    # def _transforma_em_float(self, valor_moeda):
+    #     valor_moeda = (valor_moeda.replace(",", ".")).lstrip()
+    #     valor_moeda = float(valor_moeda)
+    #     return valor_moeda

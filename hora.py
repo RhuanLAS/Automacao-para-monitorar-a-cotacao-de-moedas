@@ -5,7 +5,8 @@ def definindo_hora_inicial(driver):
     if WebDriverWait(driver, 100).until(EC.title_contains("Brasil:")):
         hora = driver.title
         hora = (hora.lstrip("Brasil: ")).replace(":", ".")
-        return float(hora)
+        #return float(hora)
+        return hora
     else:
         assert False
 
