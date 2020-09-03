@@ -5,13 +5,17 @@ import links
 import hora
 import menu
 
+######### Chamando o menu 1 para saber o driver do Chrome #########
+
+localizacao_driver_Chrome = menu.menu1()
+
 ######### Chamando o menu para saber o intervalo de tempo #########
 
 intevalo_de_tempo, quant_vezes_no_tempo = menu.menu()
 
 ############## Achando a hora para inicio do programa #############
 
-driver_hora = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+driver_hora = webdriver.Chrome(localizacao_driver_Chrome) # C:\Program Files (x86)\chromedriver.exe
 driver_hora.get("https://time.is/pt_br/Brazil")
 hora_momento = hora.hora_momento(driver_hora)
 
@@ -23,7 +27,7 @@ dolar_americano = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody
 euro = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[7]/td[3]', hora_momento)
 libra = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[8]/td[3]', hora_momento)
 
-driver_moedas = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+driver_moedas = webdriver.Chrome(localizacao_driver_Chrome) # C:\Program Files (x86)\chromedriver.exe
 driver_moedas.get("https://www.infomoney.com.br/ferramentas/cambio/")
 
 for i in range(0,quant_vezes_no_tempo): # quantas vezes vai rodar
