@@ -1,5 +1,5 @@
 
-class Moeda:
+class Moeda(object):
     def __init__(self, xpath, hora):
         self._valoresDia = [xpath]
         self._horaComeco = hora
@@ -15,4 +15,6 @@ class Moeda:
         self._valoresDia.append({"Valor": valor_moeda, "Hora": hora_momento})
 
     def _transforma_em_float(self, valor_moeda):
-        return float((valor_moeda.replace(',', '.')).lstrip())
+        valor_moeda = (valor_moeda.replace(",", ".")).lstrip()
+        valor_moeda = float(valor_moeda)
+        return valor_moeda
