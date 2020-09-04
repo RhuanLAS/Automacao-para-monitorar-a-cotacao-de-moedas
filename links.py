@@ -6,7 +6,7 @@ from selenium.common.exceptions import NoSuchElementException
 def precessa_moeda(driver, moeda, hora):
     xpath = moeda.mostra_xpath()
     try:
-        WebDriverWait(driver, 250).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, xpath)))
         valor_str = driver.find_element_by_xpath(xpath)
         valor_str = valor_str.get_attribute('textContent')
         print(valor_str)

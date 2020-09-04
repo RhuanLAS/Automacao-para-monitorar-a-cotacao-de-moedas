@@ -4,7 +4,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 def definindo_hora_inicial(driver):
     try:
-        WebDriverWait(driver, 250).until(EC.title_contains("Brasil:"))
+        WebDriverWait(driver, 20).until(EC.title_contains("Brasil:"))
         hora = driver.title
         hora = (hora.lstrip("Brasil: ")).replace(":", ".")
         #return float(hora)
