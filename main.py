@@ -50,4 +50,6 @@ print(f" Dólar Americano: {dolar_americano}")
 print(f" Euro: {euro}")
 print(f" Libra: {libra}")
 
-###################################################################
+########################### OBS ####################################
+# Colocar uma condição que se o numero vier n/d. Pensar em usar o
+# regex
