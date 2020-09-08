@@ -1,0 +1,5 @@
+Peso Argentino -> [{'Valor': 0.0715, 'Hora': 14.17}, {'Valor': 0.0715, 'Hora': 14.19}]
+Dólar Canadense -> [{'Valor': 4.047, 'Hora': 14.17}, {'Valor': 4.047, 'Hora': 14.19}]
+Dólar Americano -> [{'Valor': 5.31, 'Hora': 14.17}, {'Valor': 5.31, 'Hora': 14.19}]
+Euro -> [{'Valor': 6.286, 'Hora': 14.17}, {'Valor': 6.286, 'Hora': 14.19}]
+Libra -> [{'Valor': 6.982, 'Hora': 14.17}, {'Valor': 6.982, 'Hora': 14.19}]

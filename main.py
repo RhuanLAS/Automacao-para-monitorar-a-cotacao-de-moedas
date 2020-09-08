@@ -21,11 +21,11 @@ hora_momento = hora.hora_momento(driver_hora)
 
 ################# Vendo valores para as moedas ####################
 
-peso_argentino = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[3]', hora_momento)
-dolar_canadense = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[3]/td[3]', hora_momento)
-dolar_americano = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[6]/td[3]', hora_momento)
-euro = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[7]/td[3]', hora_momento)
-libra = Moeda('/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[8]/td[3]', hora_momento)
+peso_argentino = Moeda('Peso Argentino','/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[1]/td[3]', hora_momento)
+dolar_canadense = Moeda('Dólar Canadense','/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[3]/td[3]', hora_momento)
+dolar_americano = Moeda('Dólar Americano','/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[6]/td[3]', hora_momento)
+euro = Moeda('Euro','/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[7]/td[3]', hora_momento)
+libra = Moeda('Libra','/html/body/div[4]/div/div[1]/div[2]/div/div/table/tbody/tr[8]/td[3]', hora_momento)
 
 driver_moedas = webdriver.Chrome(localizacao_driver_Chrome) # C:\Program Files (x86)\chromedriver.exe
 driver_moedas.get("https://www.infomoney.com.br/ferramentas/cambio/")
@@ -50,11 +50,11 @@ print(f" Dólar Americano: {dolar_americano}")
 print(f" Euro: {euro}")
 print(f" Libra: {libra}")
 
-peso_argentino.coloca_em_arquivo()
-dolar_canadense.coloca_em_arquivo()
-dolar_americano.coloca_em_arquivo()
-euro.coloca_em_arquivo()
-libra.coloca_em_arquivo()
+peso_argentino.coloca_dados_no_arquivo()
+dolar_canadense.coloca_dados_no_arquivo()
+dolar_americano.coloca_dados_no_arquivo()
+euro.coloca_dados_no_arquivo()
+libra.coloca_dados_no_arquivo()
 
 ########################### OBS ####################################
 # 1 - Pensar em um jeito do arquivo ficar mais organizado
