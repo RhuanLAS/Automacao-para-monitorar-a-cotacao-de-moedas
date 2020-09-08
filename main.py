@@ -51,9 +51,13 @@ print(f" Euro: {euro}")
 print(f" Libra: {libra}")
 
 peso_argentino.coloca_em_arquivo()
+dolar_canadense.coloca_em_arquivo()
+dolar_americano.coloca_em_arquivo()
+euro.coloca_em_arquivo()
+libra.coloca_em_arquivo()
 
 ########################### OBS ####################################
-# 1 - Colocar as informações em um arquivo .txt para o usuário ter acesso aos valores passados
+# 1 - Pensar em um jeito do arquivo ficar mais organizado
 # 2 - Plotar um gráfico ao término da execução do programa
 # 3 - Ter a possibilidade de plotar um gráfico com as infos do arquivo
 # 4 - Apresentar ao usuário as moedas que ele deseja saber o valor. Ex: um menu para isso

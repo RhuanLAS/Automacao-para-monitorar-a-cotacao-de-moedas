@@ -13,7 +13,7 @@ def definindo_hora_inicial(driver):
             hora = float(hora)
             return hora
         else:
-            return "Atenção Hora Indisponível"
+            return "Atencao Hora Indisponivel"
     except NoSuchElementException as e:
         print(e)
 

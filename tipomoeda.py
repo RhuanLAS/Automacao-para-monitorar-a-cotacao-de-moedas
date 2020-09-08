@@ -16,7 +16,7 @@ class Moeda(object):
         if type(valor_valido) == re.Match:
             valor_moeda = self._transforma_em_float(valor_moeda)
         else:
-            valor_moeda = "Atenção Valor Indisponível"
+            valor_moeda = "Atencao Valor Indisponivel"
         self._valoresDia.append({"Valor": valor_moeda, "Hora": hora_momento})
 
     def _transforma_em_float(self, valor_moeda):
@@ -32,4 +32,3 @@ class Moeda(object):
     def coloca_em_arquivo(self):
         with open("valoresEhora.txt", "a") as arquivo:
             arquivo.write(self.__str__())
-            arquivo.write("\n")
