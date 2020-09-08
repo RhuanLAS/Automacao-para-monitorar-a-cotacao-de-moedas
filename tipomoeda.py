@@ -28,3 +28,8 @@ class Moeda(object):
         identificador = "[0-9]{1,2}[,][0,9]{0,6}"
         retorno = re.search(identificador, valor_moeda)
         return retorno
+
+    def coloca_em_arquivo(self):
+        with open("valoresEhora.txt", "a") as arquivo:
+            arquivo.write(self.__str__())
+            arquivo.write("\n")

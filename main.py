@@ -50,6 +50,10 @@ print(f" Dólar Americano: {dolar_americano}")
 print(f" Euro: {euro}")
 print(f" Libra: {libra}")
 
+peso_argentino.coloca_em_arquivo()
+
 ########################### OBS ####################################
-# Colocar uma condição que se o numero vier n/d. Pensar em usar o
-# regex
+# 1 - Colocar as informações em um arquivo .txt para o usuário ter acesso aos valores passados
+# 2 - Plotar um gráfico ao término da execução do programa
+# 3 - Ter a possibilidade de plotar um gráfico com as infos do arquivo
+# 4 - Apresentar ao usuário as moedas que ele deseja saber o valor. Ex: um menu para isso
