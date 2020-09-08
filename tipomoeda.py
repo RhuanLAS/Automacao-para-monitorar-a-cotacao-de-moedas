@@ -16,7 +16,7 @@ class Moeda(object):
         if type(valor_valido) == re.Match:
             valor_moeda = self._transforma_em_float(valor_moeda)
         else:
-            valor_moeda = "ATENÇÃO"
+            valor_moeda = "Atenção Valor Indisponível"
         self._valoresDia.append({"Valor": valor_moeda, "Hora": hora_momento})
 
     def _transforma_em_float(self, valor_moeda):
@@ -25,6 +25,6 @@ class Moeda(object):
         return valor_moeda
 
     def verifica_valor_valido(self, valor_moeda):
-        indentificador = "[0-9]{1,2}[,][0,9]{0,6}"
-        retorno = re.search(indentificador, valor_moeda)
+        identificador = "[0-9]{1,2}[,][0,9]{0,6}"
+        retorno = re.search(identificador, valor_moeda)
         return retorno
