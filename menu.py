@@ -45,8 +45,8 @@ def menu_da_op_1():
     print(" Obs: certifique-se que a entrada seja exatamente o que está nas informções acima.")
     while True:
         moeda_escolha = input(" Escolha: ")
-        moeda_escolha = moeda_escolha.strip()
-        if verifica(moeda_escolha, moedas_usuario):
+        # moeda_escolha = moeda_escolha.strip()
+        if verifica(moeda_escolha.strip(), moedas_usuario):
             moedas_usuario.append(moeda_escolha)
             decisao_usuario = decisao()
             if decisao_usuario == 'N':
@@ -54,7 +54,13 @@ def menu_da_op_1():
         else:
             print(" ERRO: Você pode ter digitado uma moeda novamente ou ela não está presente em nossa lista.")
             print()
-    return moedas_usuario
+
+    print()
+    tempo = input(" Por favor, nos informe o tempo para cada verificação da cotação das moedas escolhidas. Em minutos: ")
+    print()
+    num_de_vezes = int(input(" Além disso, o número de intervalos tempo, escolhidos acima. Número de vezes: "))
+
+    return moedas_usuario, tempo, num_de_vezes
 
 def verifica(moeda, moedas_usuario): # melhorar a verificação das moedas depois
     lista_moedas_validas = ["DólarComercial", "DólarTurismo", "DólarCanadense", "DólarAustraliano", "Euro", "LibraEsterlina", "PesoArgentino", "IeneJaponês", "FrancoSuíço", "YuanChinês", "NovoShekelIsraelense", "Bitcoin", "Litecoin", "Ethereum", "Ripple"]
