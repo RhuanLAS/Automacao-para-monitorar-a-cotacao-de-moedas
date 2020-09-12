@@ -56,11 +56,13 @@ def menu_da_op_1():
             print()
 
     print()
-    tempo = input(" Por favor, nos informe o tempo para cada verificação da cotação das moedas escolhidas. Em minutos: ")
+    tempo = float(input(" Por favor, nos informe o tempo para cada verificação da cotação das moedas escolhidas. Em minutos: "))
     print()
     num_de_vezes = int(input(" Além disso, o número de intervalos tempo, escolhidos acima. Número de vezes: "))
+    print()
+    hora = float(input(" Por fim, a hora do inicio da execução do programa. Hora (0 até 23.59): "))
 
-    return moedas_usuario, tempo, num_de_vezes
+    return moedas_usuario, tempo, num_de_vezes, hora
 
 def verifica(moeda, moedas_usuario): # melhorar a verificação das moedas depois
     lista_moedas_validas = ["DólarComercial", "DólarTurismo", "DólarCanadense", "DólarAustraliano", "Euro", "LibraEsterlina", "PesoArgentino", "IeneJaponês", "FrancoSuíço", "YuanChinês", "NovoShekelIsraelense", "Bitcoin", "Litecoin", "Ethereum", "Ripple"]
