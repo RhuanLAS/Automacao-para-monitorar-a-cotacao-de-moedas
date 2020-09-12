@@ -45,7 +45,6 @@ def menu_da_op_1():
     print(" Obs: certifique-se que a entrada seja exatamente o que está nas informções acima.")
     while True:
         moeda_escolha = input(" Escolha: ")
-        # moeda_escolha = moeda_escolha.strip()
         if verifica(moeda_escolha.strip(), moedas_usuario):
             moedas_usuario.append(moeda_escolha)
             decisao_usuario = decisao()
@@ -56,13 +55,11 @@ def menu_da_op_1():
             print()
 
     print()
-    tempo = float(input(" Por favor, nos informe o tempo para cada verificação da cotação das moedas escolhidas. Em minutos: "))
+    tempo = int(input(" Por favor, nos informe o tempo para execução do programa. Em horas: "))
     print()
-    num_de_vezes = int(input(" Além disso, o número de intervalos tempo, escolhidos acima. Número de vezes: "))
-    print()
-    hora = float(input(" Por fim, a hora do inicio da execução do programa. Hora (0 até 23.59): "))
+    num_de_vezes = int(input(" Número de vezes para resgatar possíveis mudanças na cotação: "))
 
-    return moedas_usuario, tempo, num_de_vezes, hora
+    return moedas_usuario, tempo, num_de_vezes
 
 def verifica(moeda, moedas_usuario): # melhorar a verificação das moedas depois
     lista_moedas_validas = ["DólarComercial", "DólarTurismo", "DólarCanadense", "DólarAustraliano", "Euro", "LibraEsterlina", "PesoArgentino", "IeneJaponês", "FrancoSuíço", "YuanChinês", "NovoShekelIsraelense", "Bitcoin", "Litecoin", "Ethereum", "Ripple"]

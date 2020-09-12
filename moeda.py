@@ -11,5 +11,5 @@ class Moeda:
     def retorna_sigla(self):
         return self._sigla
 
-    def adiciona_valor(self, valor_compra, valor_venda,hora):
-        self._listaValores.append({"Valor Compra": valor_compra, "Valor Venda": valor_venda,"Hora": hora})
+    def adiciona_valor(self, valor_compra, valor_venda, hora, data):
+        self._listaValores.append({"Valor Compra": valor_compra, "Valor Venda": valor_venda,"Hora": hora, "data": data})
