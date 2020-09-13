@@ -32,7 +32,6 @@ def mensagem_saida_programa():
     print(" Obrigado por usar o programa !!")
 
 def menu_da_op_1():
-    moedas_usuario = []
     print()
     print(" Aqui está todas as moedas que oferecemos para obtenção de informações: ")
     print(" Dólar Comercial              Dólar Turismo              Dólar Canadense")
@@ -41,17 +40,16 @@ def menu_da_op_1():
     print(" Yuan Chinês                  Novo Shekel Israelense     Bitcoin")
     print(" Litecoin                     Ethereum                   Ripple")
     print()
-    print(" Precisamos saber qual(ais) moeda(s) você deseja obter os dados.")
+    print(" Precisamos saber qual moeda você deseja obter os dados.")
     print(" Obs: certifique-se que a entrada seja exatamente o que está nas informções acima.")
     while True:
         moeda_escolha = input(" Escolha: ")
-        if verifica(moeda_escolha.strip(), moedas_usuario):
-            moedas_usuario.append(moeda_escolha)
-            decisao_usuario = decisao()
-            if decisao_usuario == 'N':
+        if verifica(moeda_escolha.rstrip()):
+            decisao_usuario = decisao(moeda_escolha)
+            if decisao_usuario == 'S':
                 break
         else:
-            print(" ERRO: Você pode ter digitado uma moeda novamente ou ela não está presente em nossa lista.")
+            print(" ERRO: Você pode ter digitado uma moeda repetida ou ela não está presente em nossa lista.")
             print()
 
     print()
@@ -59,18 +57,18 @@ def menu_da_op_1():
     print()
     num_de_vezes = int(input(" Número de vezes para resgatar possíveis mudanças na cotação: "))
 
-    return moedas_usuario, tempo, num_de_vezes
+    return moeda_escolha, tempo, num_de_vezes
 
-def verifica(moeda, moedas_usuario): # melhorar a verificação das moedas depois
-    lista_moedas_validas = ["DólarComercial", "DólarTurismo", "DólarCanadense", "DólarAustraliano", "Euro", "LibraEsterlina", "PesoArgentino", "IeneJaponês", "FrancoSuíço", "YuanChinês", "NovoShekelIsraelense", "Bitcoin", "Litecoin", "Ethereum", "Ripple"]
-    if moeda in lista_moedas_validas and moeda not in moedas_usuario:
+def verifica(moeda): # melhorar a verificação das moedas depois
+    lista_moedas_validas = ["Dólar Comercial", "Dólar Turismo", "Dólar Canadense", "Dólar Australiano", "Euro", "Libra Esterlina", "Peso Argentino", "Iene Japonês", "Franco Suíço", "Yuan Chinês", "Novo Shekel Israelense", "Bitcoin", "Litecoin", "Ethereum", "Ripple"]
+    if moeda in lista_moedas_validas:
         return True
     else:
         return False
 
-def decisao():
+def decisao(moeda_escolha):
     print()
-    decisao = (input(" Deseja continuar escolhendo alguma moeda? [S] - SIM e [N] - NÃO: ")).upper()
+    decisao = (input(f" Sua escolha foi: {moeda_escolha}. Tem certeza da sua escolha? [S] - SIM e [N] - NÃO: ")).upper()
     if decisao != "S" and decisao != "N":
         print(" Você digitou uma letra não permitida. Digite novamente.")
         print()

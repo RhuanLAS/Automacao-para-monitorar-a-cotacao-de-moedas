@@ -3,21 +3,21 @@ import links
 import moeda
 import time
 import obtemDados
+import arquivo
 
 escolha = menu.menu_bem_vindo()
 if escolha == 1:
-    moedas_escolhidas, tempo, num_de_vezes = menu.menu_da_op_1()
-    ref_moedas = []
-    for i in range(0, len(moedas_escolhidas)):
-        sigla = links.dicionario_moedas(moedas_escolhidas[i].strip())
-        ref_moedas.append(moeda.Moeda(sigla, moedas_escolhidas[i].rstrip()))
+    moeda_escolhida, tempo, num_de_vezes = menu.menu_da_op_1()
+
+    sigla = links.dicionario_moedas(moeda_escolhida.rstrip())
+    moeda_e = moeda.Moeda(sigla, moeda_escolhida.rstrip())
 
     for i in range(0, num_de_vezes):
-        dicionario_moedas = obtemDados.abre_url_return_dic()
-        for j in range(0, len(ref_moedas)):
-            obtemDados.add(ref_moedas[j], dicionario_moedas)
-            print(ref_moedas[j])
+        dicionario_moeda = obtemDados.abre_url_return_dic(sigla)
+        obtemDados.add(moeda_e, dicionario_moeda, sigla)
         time.sleep(tempo) # mudar para *3600 dps
+
+    arquivo.coloca_dados_no_arquivo(moeda_e)
 
 else:
     pass
