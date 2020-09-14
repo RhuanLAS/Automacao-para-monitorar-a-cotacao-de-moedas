@@ -4,8 +4,6 @@ def menu_bem_vindo():
     print()
     print(f" {decoracao} BEM VINDO {decoracao}")
     print()
-    escolha = menu_inicial()
-    return escolha
 
 def menu_inicial():
     decoracao = "+" * 28
@@ -53,11 +51,13 @@ def menu_da_op_1():
             print()
 
     print()
-    tempo = int(input(" Por favor, nos informe o tempo para execução do programa. Em horas: "))
+    tempo = int(input(" Por favor, nos informe o tempo para obter informações no programa. Em horas: "))
     print()
     num_de_vezes = int(input(" Número de vezes para resgatar possíveis mudanças na cotação: "))
+    print()
+    hora = float(input(" Horário que foi iniciado o programa (0 - 23.59): "))
 
-    return moeda_escolha, tempo, num_de_vezes
+    return moeda_escolha, tempo, num_de_vezes, hora
 
 def verifica(moeda): # melhorar a verificação das moedas depois
     lista_moedas_validas = ["Dólar Comercial", "Dólar Turismo", "Dólar Canadense", "Dólar Australiano", "Euro", "Libra Esterlina", "Peso Argentino", "Iene Japonês", "Franco Suíço", "Yuan Chinês", "Novo Shekel Israelense", "Bitcoin", "Litecoin", "Ethereum", "Ripple"]
@@ -75,3 +75,15 @@ def decisao(moeda_escolha):
         decisao()
 
     return decisao
+
+def pergunta_continua():
+    print()
+    escolha = (input(" Deseja acessar mais uma funcionalidade do programa? [S] - SIM ou [N] - NÃO: ")).upper()
+    print()
+    while True:
+        if escolha == "S" or escolha == "N":
+            break
+        else:
+            print(" Por favor, digite uma letra válida")
+            print()
+    return escolha

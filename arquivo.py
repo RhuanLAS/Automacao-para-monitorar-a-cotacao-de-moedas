@@ -1,4 +1,5 @@
 from matplotlib import pyplot as plt
+from PIL import Image
 
 def coloca_dados_no_arquivo(moeda):
     v_Compra = []
@@ -17,6 +18,7 @@ def faz_plot(x, y, moeda, str):
     plt.title(f"{moeda.retorna_nome()} - {moeda.retorna_sigla()}")
     plt.ylabel(str)
     plt.xlabel("Hora")
+    print()
     nome = input(" Nome da figura para salvar (.png). Nome: ")
     plt.savefig(f"graficos/{nome}.png")
     escolha = escolha_de_plot()
@@ -34,3 +36,7 @@ def escolha_de_plot():
             print(" Você digitou uma letra inválida. Tente novamente.")
             print()
     return escolha
+
+def abre_os_graficos_feitos(nome):
+    f = Image.open(f"graficos/{nome}.png")
+    f.show()
