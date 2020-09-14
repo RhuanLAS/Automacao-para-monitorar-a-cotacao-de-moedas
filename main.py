@@ -18,7 +18,7 @@ while True:
         for i in range(0, num_de_vezes):
             dicionario_moeda = obtemDados.abre_url_return_dic(sigla)
             obtemDados.add(moeda_e, dicionario_moeda, sigla, hora)
-            time.sleep(tempo)  # mudar para *3600 dps
+            time.sleep(tempo*3600)
             hora = links.hora(hora, tempo)
 
         arquivo.coloca_dados_no_arquivo(moeda_e)
